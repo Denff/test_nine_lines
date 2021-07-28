@@ -1,0 +1,135 @@
+.anketa {
+    background-color: rgba( 240, 240, 240, 1);
+    padding-top: 60px;
+    padding-bottom: 100px;
+
+    h2 {
+        margin-top: 0;
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
+
+    &__form {
+        margin: 0 auto;
+        width: 660px;
+        overflow: hidden;
+    }
+
+    &__basic {
+        display: flex;
+        flex-flow: row nowrap;
+        padding: 0 19px 32px 20px;
+        background-color: #ffffff;
+        margin-bottom: 1px;
+    }
+
+    &__person-img {
+        flex: 0 0 auto;
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 21px;
+        margin-top: 30px;
+        position: relative;
+
+        picture {
+            display: block;
+            position: absolute;
+            content: '';
+            top: -20px;
+            left: 0;
+            width: 140px;
+            height: 140px;
+        }
+    }
+
+    &__approved-img {
+        position: absolute;
+        content: '';
+        transform: scale(2);
+        top: 0;
+        right: -300px;
+        transition: all 0.4s;
+        z-index: 5;
+        opacity: 0.7;
+        &.active {
+            transform: scale(1);
+            right: -16px;
+            top: 73px;
+            opacity: 1;
+        }
+    }
+    &__skills {
+        padding: 34px 20px 0px 22px;
+        background-color: #ffffff;
+        margin-bottom: 1px;
+    }
+    &__checkboxes-inner {
+        height: 176px;
+        display: flex;
+        flex-flow: column wrap;
+    }
+    &__skill-label {
+        display: flex;
+        flex-flow: row nowrap;
+        width: 160px;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+        padding-top: 3px;
+        font-weight: 500;
+        margin-bottom: 37px;
+    }
+    &__js {
+        padding: 59px 18px 0px 23px;
+        background-color: #ffffff;
+        display: flex;
+        flex-flow: row nowrap;
+        h2 {
+            margin-bottom: 27px;
+            margin-top: 7px;
+            line-height: 130%;
+        }
+    }
+    &__js-img {
+        width: 320px;
+        flex: 0 0 auto;
+        position: relative;
+        input, label {
+            margin-top: 40px;
+        }
+    }
+    &__js-scale {
+        width: 250px;
+        z-index: 0;
+        
+    }
+    &__js-arrow-box {
+        position: absolute;
+        content: '';
+        width: 131px;
+        height: 131px;
+        top: 85px;
+        left: 65px;
+        z-index: 1;
+        transform: rotate(40deg);
+    }
+    &__js-arrow {
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;
+    }
+    &__js-counter {
+        font-size: 50px;
+        color: #0093d7;
+        line-height: 0.44;
+        height: 100px;
+        font-weight: 700;
+    }
+}
+
+.anketa__skill-label:nth-child(3n) {
+    margin-bottom: 33px;
+}
+
