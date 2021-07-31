@@ -1,77 +1,103 @@
 if (document.querySelector('.anketa__js-counter')) {
-    const time = 3000;
-    let step = 1;
-    let count = 0;
+  
+    
     const yellowColor = '#ffc815';
     const greenColor = '#a3cd3b';
     const blueColor = '#0093d7';
     const arrowNeedle =  document.querySelector('.anketa__js-arrow');
 
-    const showNumber = (number, element) => {
 
-        let counterDiv = document.querySelector(element);
-        let i = 0;
-        let timer;
-        if (number === 0) {
-            i = number;
-            timer = 0;
-            step = 0;
-        }
-        else {
-            timer = Math.round(time/(number/step));
+    const ch = document.querySelectorAll('.checkbox');
+    const counterOut = document.querySelector('.anketa__js-counter')
+    let arr_1 = [];
+    let sumOut = 0;
+
+
+    const plusFunc = () => {
+
+        for(let i in ch) {
+            ch[i].disabled = true;   
+            setTimeout(()=> {
+                ch[i].disabled = false;
+            }, 420);
         }
 
         let interval = setInterval(() => {
-            i = i + step;
-            if (i <= 320) {
-                counterDiv.style.color=yellowColor;
-            }
-            else if (i >= 321 && i <= 670) {
-                counterDiv.style.color=greenColor;
-            }
-            else if (i >= 671) {
-                counterDiv.style.color=blueColor;
-            }
+            sumOut = sumOut + 1;
 
-            if (i === number) {
+            let s = arr_1.reduce((a, b) => a+b);
+
+            if (sumOut === s) {
                 clearInterval(interval);
             }
-
-            arrowNeedle.style.transform = 'rotate(' + (285 + ((i * 180) / 1000)) + 'deg)';
-            counterDiv.innerHTML = i;
-        }, 
-            timer);
-        console.log(timer);
-        console.log(count);
+            counterOut.innerHTML = sumOut;
+        }, 5); 
 
     }
+    const minusFunc = () => {
 
-    showNumber(450, '.anketa__js-counter');
+            for(let i in ch) {
+                ch[i].disabled = true;
+                setTimeout(()=> {
+                    ch[i].disabled = false;
+                }, 420);
+            }
 
-    // if (document.querySelectorAll('.checkbox')) {
-    const checkbox = document.querySelectorAll('.checkbox');
-    checkbox.forEach(item => {
+            let interval = setInterval(() => {
+                sumOut = sumOut - 1;
 
-        item.addEventListener('change', function() {
+                let s;
+                arr_1.length ? s = arr_1.reduce((a, b) => a+b) : s = 0;
+
+                if (  sumOut === s ) {
+                    clearInterval(interval);
+                }
+
+                counterOut.innerHTML = sumOut;
+            }, 5); 
+    }
+
+
+    const checkFunc = (elem) => {
         
-            this.checked ? sumNumber() : minusNumber();
+        if(elem.target.checked) {
+
+            arr_1[arr_1.length] = 84;
+            plusFunc();
+
+        } else {
+            arr_1.pop();
+            minusFunc();
+        }
+    
+        return arr_1;
+    }
+
+    const changeCheckState = ch.forEach((item) => {
+        item.addEventListener('change', (e) => {
+
+            checkFunc(e);
 
         });
-    
     });
-    // }
-    const sumNumber = () => {
-        count += 82;
-        return count;
-       
-    }
-    const minusNumber = () => {
-        count -= 82;
-        if (count < 0) {
-            count = 0;
-        }
-        return count;
-    }
+
+
+
 
 }
+// arrowNeedle.style.transform = 'rotate(' + (285 + ((i * 180) / 1000)) + 'deg)';
+            // if (i <= 320) {
+            //     counterDiv.style.color=yellowColor;
+            // }
+            // else if (i >= 321 && i <= 670) {
+            //     counterDiv.style.color=greenColor;
+            // }
+            // else if (i >= 671) {
+            //     counterDiv.style.color=blueColor;
+            // }
+
+            // if (i === number) {
+            //     clearInterval(interval);
+            // }
+
 
