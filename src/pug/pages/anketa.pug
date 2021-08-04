@@ -7,61 +7,24 @@ main.anketa
                     alt: 'Bruce',
                 })
             .fields-box
-                .field
-                    input.field-input(type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required)
-                    label.field-label имя
-                .field
-                    input.field-input(type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required)
-                    label.field-label дата рождения
-                .field
-                    input.field-input(type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required)
-                    label.field-label город
-                .field
-                    input.field-input(type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required)
-                    label.field-label контактные данные
+                -let labelsArr = ['имя', 'дата рождения', 'город', 'контактные данные'];
+                each element in labelsArr
+                    .field
+                        input.field-input(type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required)
+                        label.field-label #{element}
                 +lazyPicture({
                     src: `${baseDir}images/print.png`,
                     alt: 'approved',
                 }).anketa__approved-img
         .anketa__skills
             h2 Навыки
-            .anketa__checkboxes-inner 
-                label.anketa__skill-label(for="")
-                    input(type="checkbox").checkbox
-                    | html5
-                label.anketa__skill-label(for="")
-                    input(type="checkbox").checkbox
-                    | css3
-                label.anketa__skill-label(for="")
-                    input(type="checkbox").checkbox
-                    | бэм
-                label.anketa__skill-label(for="")
-                    input(type="checkbox").checkbox
-                    | sass
-                label.anketa__skill-label(for="")
-                    input(type="checkbox").checkbox
-                    | less
-                label.anketa__skill-label(for="")
-                    input(type="checkbox").checkbox
-                    | gulp
-                label.anketa__skill-label(for="")
-                    input(type="checkbox").checkbox
-                    | vanillajs
-                label.anketa__skill-label(for="")
-                    input(type="checkbox").checkbox
-                    | angular
-                label.anketa__skill-label(for="")
-                    input(type="checkbox").checkbox
-                    | jquery
-                label.anketa__skill-label(for="")
-                    input(type="checkbox").checkbox
-                    | git
-                label.anketa__skill-label(for="")
-                    input(type="checkbox").checkbox
-                    | foundation
-                label.anketa__skill-label(for="")
-                    input(type="checkbox").checkbox
-                    | bootstrap
+            .anketa__checkboxes-inner
+                -let checkboxesArr = ['html5','css3','бэм','sass','less','gulp','vanillajs','angular','jquery','git','foundation','bootstrap'];
+                each checkElement in checkboxesArr
+                    label.anketa__skill-label(for="") 
+                        input(type="checkbox").checkbox
+                        span #{checkElement}
+                        
         .anketa__js
             .anketa__js-img
                 img(src="images/skill.png" alt="skill").anketa__js-scale

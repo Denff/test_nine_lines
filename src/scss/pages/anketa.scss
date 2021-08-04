@@ -10,9 +10,13 @@
     }
 
     &__form {
-        margin: 0 auto;
         width: 660px;
-        overflow: hidden;
+        margin: 0 auto; 
+
+        @include mobile {
+            width: auto;
+            margin: 10px;
+        }
     }
 
     &__basic {
@@ -21,6 +25,10 @@
         padding: 0 19px 32px 20px;
         background-color: #ffffff;
         margin-bottom: 1px;
+
+        @include mobile {
+            flex-flow: column nowrap;
+        }
     }
 
     &__person-img {
@@ -47,29 +55,49 @@
     &__approved-img {
         position: absolute;
         content: '';
-        transform: scale(2);
         top: 0;
         right: -300px;
-        transition: all 0.4s;
         z-index: 5;
-        opacity: 0.7;
+        opacity: 0;
+        transform: scale(2);
+        transition: all 0.4s ease 0.2s;
+
         &.active {
             transform: scale(1);
             right: -16px;
             top: 73px;
             opacity: 1;
+
+            @include mobile {
+                top: -100px;
+            }
         }
     }
+
     &__skills {
         padding: 34px 20px 0px 22px;
         background-color: #ffffff;
         margin-bottom: 1px;
+
+        @include mobile {
+            padding: 34px 10px 0px 10px;
+        }
     }
+
     &__checkboxes-inner {
         height: 176px;
         display: flex;
         flex-flow: column wrap;
+        width: auto;
+        margin: 0;
+
+        @include mobile {
+            height: 400px;
+            width: 300px;
+            margin: 0 auto;
+        }
     }
+
     &__skill-label {
         display: flex;
         flex-flow: row nowrap;
@@ -80,17 +108,27 @@
         font-weight: 500;
         margin-bottom: 37px;
     }
+
     &__js {
         padding: 59px 18px 0px 23px;
         background-color: #ffffff;
         display: flex;
         flex-flow: row nowrap;
+
         h2 {
             margin-bottom: 27px;
             margin-top: 7px;
             line-height: 130%;
         }
+
+        @include mobile {
+            padding: 30px 18px 0px 23px;
+            flex-flow: column nowrap;
+            align-items: center;
+            text-align: center;
+        }
     }
+
     &__js-img {
         width: 320px;
         flex: 0 0 auto;
@@ -98,12 +136,17 @@
         input, label {
             margin-top: 40px;
         }
+        @include mobile {
+            width: auto;
+            margin-bottom: 25px;
+        }
     }
+
     &__js-scale {
         width: 250px;
         z-index: 0;
-        
     }
+
     &__js-arrow-box {
         position: absolute;
         content: '';
@@ -114,12 +157,15 @@
         z-index: 1;
         transform: rotate(40deg);
     }
+
     &__js-arrow {
         position: absolute;
         content: '';
         top: 0;
         left: 0;
+        transform: rotate(-75deg);
     }
+
     &__js-counter {
         font-size: 50px;
         color: #0093d7;
@@ -132,4 +178,3 @@
 .anketa__skill-label:nth-child(3n) {
     margin-bottom: 33px;
 }
-

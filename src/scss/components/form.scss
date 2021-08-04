@@ -2,6 +2,7 @@
     flex: 1;
     position: relative;
 }
+
 .field {
     position: relative;
     padding: 6px 0 0;
@@ -24,6 +25,7 @@
     transition: 0.2s;
     letter-spacing: 1.2px;
 }
+
 .field-input {
     font-family: inherit;
     width: 100%;
@@ -37,11 +39,14 @@
     &::placeholder {
         color: transparent;
     }
+    
+    &:required,
+    &:invalid { 
+        box-shadow:none;
+    }
 }
 
-.field-input {
-    &:required,&:invalid { box-shadow:none; }
-}
+
 .field-input:focus ~ .field-label,
 .field-input.active ~ .field-label {
     position: absolute;
@@ -50,10 +55,10 @@
     display: block;
     transition: 0.2s;
     font-size: 0.7rem;
-    font-weight:700;    
 }
 
 @keyframes click-wave {
+
     0% {
         height: 19px;
         width: 19px;
@@ -61,6 +66,7 @@
         opacity: 0.35;
         position: relative;
     }
+
     100% {
         height: 40px;
         width: 40px;
@@ -86,13 +92,14 @@
     position: relative;
     top: -2px;
     z-index: 1000;
+    &:hover {
+        background: #cccccc;
+    }
+    &:checked {
+        background: rgba( 0, 147, 215, 1);
+    }
 }
-.checkbox:hover {
-    background: #cccccc;
-}
-.checkbox:checked {
-    background: rgba( 0, 147, 215, 1);
-}
+
 .checkbox:checked::before {
     height: 10px;
     width: 14px;
@@ -103,9 +110,8 @@
     background: url('../images/check.png') no-repeat;
     background-size: 100%;
     background-position: center;
-
-
 }
+
 .checkbox:checked::after {
     animation: click-wave 0.65s;
     background: rgba( 0, 147, 215, 1);
