@@ -1,180 +1,189 @@
 .anketa {
-    background-color: rgba( 240, 240, 240, 1);
-    padding-top: 60px;
-    padding-bottom: 100px;
+	padding-top: 60px;
+	padding-bottom: 100px;
+	background-color: rgba(240, 240, 240, 1);
 
-    h2 {
-        margin-top: 0;
-        font-weight: 500;
-        margin-bottom: 20px;
-    }
+	h2 {
+		margin-top: 0;
+		margin-bottom: 20px;
+		font-weight: 500;
+	}
 
-    &__form {
-        width: 660px;
-        margin: 0 auto; 
+	&__form {
+		margin: 0 auto;
+		width: 660px;
 
-        @include mobile {
-            width: auto;
-            margin: 10px;
-        }
-    }
+		@include mobile {
+			margin: 10px;
+			width: auto;
+		}
+	}
 
-    &__basic {
-        display: flex;
-        flex-flow: row nowrap;
-        padding: 0 19px 32px 20px;
-        background-color: #ffffff;
-        margin-bottom: 1px;
+	&__basic {
+		display: flex;
+		flex-flow: row nowrap;
+		margin-bottom: 1px;
+		padding: 0 19px 32px 20px;
+		background-color: #fff;
 
-        @include mobile {
-            flex-flow: column nowrap;
-        }
-    }
+		@include tablet {
+			overflow: hidden;
+		}
 
-    &__person-img {
-        flex: 0 0 auto;
-        width: 140px;
-        height: 140px;
-        border-radius: 50%;
-        overflow: hidden;
-        margin-right: 21px;
-        margin-top: 30px;
-        position: relative;
+		@include mobile {
+			flex-flow: column nowrap;
+			overflow: hidden;
+		}
+	}
 
-        picture {
-            display: block;
-            position: absolute;
-            content: '';
-            top: -20px;
-            left: 0;
-            width: 140px;
-            height: 140px;
-        }
-    }
+	&__person-img {
+		position: relative;
+		flex: 0 0 auto;
+		overflow: hidden;
+		margin-top: 30px;
+		margin-right: 21px;
+		border-radius: 50%;
+		width: 140px;
+		height: 140px;
 
-    &__approved-img {
-        position: absolute;
-        content: '';
-        top: 0;
-        right: -300px;
-        z-index: 5;
-        opacity: 0;
-        transform: scale(2);
-        transition: all 0.4s ease 0.2s;
+		picture {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: -20px;
+			display: block;
+			width: 140px;
+			height: 140px;
+		}
+	}
 
-        &.active {
-            transform: scale(1);
-            right: -16px;
-            top: 73px;
-            opacity: 1;
+	&__approved-img {
+		content: "";
+		position: absolute;
+		right: -300px;
+		top: 0;
+		z-index: 5;
+		opacity: 0;
+		transform: scale(2);
+		transition: all 0.4s ease 0.2s;
 
-            @include mobile {
-                top: -100px;
-            }
-        }
-    }
+		&.active {
+			right: -16px;
+			top: 73px;
+			opacity: 1;
+			transform: scale(1);
 
-    &__skills {
-        padding: 34px 20px 0px 22px;
-        background-color: #ffffff;
-        margin-bottom: 1px;
+			@include mobile {
+				top: -100px;
+			}
+		}
+	}
 
-        @include mobile {
-            padding: 34px 10px 0px 10px;
-        }
-    }
+	&__skills {
+		margin-bottom: 1px;
+		padding: 34px 20px 0 22px;
+		background-color: #fff;
 
-    &__checkboxes-inner {
-        height: 176px;
-        display: flex;
-        flex-flow: column wrap;
-        width: auto;
-        margin: 0;
+		@include mobile {
+			padding: 34px 10px 0;
+		}
+	}
 
-        @include mobile {
-            height: 400px;
-            width: 300px;
-            margin: 0 auto;
-        }
-    }
+	&__checkboxes-inner {
+		display: flex;
+		flex-flow: column wrap;
+		margin: 0;
+		width: auto;
+		height: 176px;
 
-    &__skill-label {
-        display: flex;
-        flex-flow: row nowrap;
-        width: 160px;
-        text-transform: uppercase;
-        letter-spacing: 1.2px;
-        padding-top: 3px;
-        font-weight: 500;
-        margin-bottom: 37px;
-    }
+		@include mobile {
+			margin: 0 auto;
+			width: 300px;
+			height: 400px;
+		}
+	}
 
-    &__js {
-        padding: 59px 18px 0px 23px;
-        background-color: #ffffff;
-        display: flex;
-        flex-flow: row nowrap;
+	&__skill-label {
+		display: flex;
+		flex-flow: row nowrap;
+		margin-bottom: 37px;
+		padding-top: 3px;
+		width: 160px;
+		font-weight: 500;
+		letter-spacing: 1.2px;
+		text-transform: uppercase;
+		cursor: pointer;
+	}
 
-        h2 {
-            margin-bottom: 27px;
-            margin-top: 7px;
-            line-height: 130%;
-        }
+	&__js {
+		display: flex;
+		flex-flow: row nowrap;
+		padding: 59px 18px 0 23px;
+		background-color: #fff;
 
-        @include mobile {
-            padding: 30px 18px 0px 23px;
-            flex-flow: column nowrap;
-            align-items: center;
-            text-align: center;
-        }
-    }
+		h2 {
+			margin-top: 7px;
+			margin-bottom: 27px;
+			line-height: 130%;
+		}
 
-    &__js-img {
-        width: 320px;
-        flex: 0 0 auto;
-        position: relative;
-        input, label {
-            margin-top: 40px;
-        }
-        @include mobile {
-            width: auto;
-            margin-bottom: 25px;
-        }
-    }
+		@include mobile {
+			flex-flow: column nowrap;
+			align-items: center;
+			padding: 30px 18px 0 23px;
+			text-align: center;
+		}
+	}
 
-    &__js-scale {
-        width: 250px;
-        z-index: 0;
-    }
+	&__js-img {
+		position: relative;
+		flex: 0 0 auto;
+		width: 320px;
 
-    &__js-arrow-box {
-        position: absolute;
-        content: '';
-        width: 131px;
-        height: 131px;
-        top: 85px;
-        left: 65px;
-        z-index: 1;
-        transform: rotate(40deg);
-    }
+		input,
+		label {
+			margin-top: 40px;
+		}
 
-    &__js-arrow {
-        position: absolute;
-        content: '';
-        top: 0;
-        left: 0;
-        transform: rotate(-75deg);
-    }
+		@include mobile {
+			margin-bottom: 25px;
+			width: auto;
+		}
+	}
 
-    &__js-counter {
-        font-size: 50px;
-        color: #0093d7;
-        line-height: 0.44;
-        height: 100px;
-        font-weight: 700;
-    }
+	&__js-scale {
+		z-index: 0;
+		width: 250px;
+	}
+
+	&__js-arrow-box {
+		content: "";
+		position: absolute;
+		left: 65px;
+		top: 85px;
+		z-index: 1;
+		width: 131px;
+		height: 131px;
+		transform: rotate(40deg);
+	}
+
+	&__js-arrow {
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 0;
+		transform: rotate(-75deg);
+	}
+
+	&__js-counter {
+		height: 100px;
+		font-weight: 700;
+		font-size: 50px;
+		line-height: 0.44;
+		color: #0093d7;
+	}
 }
 
 .anketa__skill-label:nth-child(3n) {
-    margin-bottom: 33px;
+	margin-bottom: 33px;
 }

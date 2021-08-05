@@ -6,14 +6,10 @@ if (document.querySelector('.field-input')) {
 			this.classList.add('active');
 		});
 
-        item.addEventListener('blur', function() {
-            if (this.value == "") {
-                this.classList.remove('active');
-            }
+		item.addEventListener('blur', function() {
+			if (this.value === '') {
+				this.classList.remove('active');
+			}
 		});
 	});
 }
-
-
-
-

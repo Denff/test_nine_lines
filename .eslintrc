@@ -332,6 +332,7 @@
 		],
 		"line-comment-position": "off",
 		"linebreak-style": [
+			0,
 			"error",
 			"unix"
 		],

@@ -1,40 +1,65 @@
 main.anketa
-    form.anketa__form
-        .anketa__basic
-            .anketa__person-img
-                +lazyPicture({
-                    src: `${baseDir}images/photo1.jpg`,
-                    alt: 'Bruce',
-                })
-            .fields-box
-                -let labelsArr = ['имя', 'дата рождения', 'город', 'контактные данные'];
-                each element in labelsArr
-                    .field
-                        input.field-input(type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required)
-                        label.field-label #{element}
-                +lazyPicture({
-                    src: `${baseDir}images/print.png`,
-                    alt: 'approved',
-                }).anketa__approved-img
-        .anketa__skills
-            h2 Навыки
-            .anketa__checkboxes-inner
-                -let checkboxesArr = ['html5','css3','бэм','sass','less','gulp','vanillajs','angular','jquery','git','foundation','bootstrap'];
-                each checkElement in checkboxesArr
-                    label.anketa__skill-label(for="") 
-                        input(type="checkbox").checkbox
-                        span #{checkElement}
-                        
-        .anketa__js
-            .anketa__js-img
-                img(src="images/skill.png" alt="skill").anketa__js-scale
-                .anketa__js-arrow-box
-                    img(src="images/arrow.png" alt="arrow").anketa__js-arrow
-            .anketa__js-info
-                h2
-                    | Мой уровень владения
-                    br
-                    | Java Script
-                .anketa__js-counter
-                
-                
+	form.anketa__form
+		.anketa__basic
+			.anketa__person-img
+				+lazyPicture({
+					src: `${baseDir}images/photo1.jpg`,
+					alt: 'Bruce',
+				})
+			.fields-box
+				-
+					let fields = [
+						{label: 'имя', value: 'Денис'},
+						{label: 'дата рождения', value: '03.11.1984'},
+						{label: 'город', value: 'Миасс'},
+						{label: 'контактные данные', value: '+7-982-333-65-75'}
+					];
+				each field in fields
+					.field
+						input.field-input.active(
+							type="text"
+							autocomplete="off"
+							autocorrect="off"
+							autocapitalize="off"
+							spellcheck="false"
+							required
+							value=field.value
+						)
+						label.field-label #{field.label}
+				+lazyPicture({
+					src: `${baseDir}images/print.png`,
+					alt: 'approved',
+				}).anketa__approved-img
+		.anketa__skills
+			h2 Навыки
+			.anketa__checkboxes-inner
+				-
+					let checkboxes = [
+						{name: 'html5', status: 'checked'},
+						{name: 'css3', status: 'checked'},
+						{name: 'бэм', status: 'checked'},
+						{name: 'sass', status: 'checked'},
+						{name: 'less', status: ''},
+						{name: 'gulp', status: 'checked'},
+						{name: 'vanillajs', status: 'checked'},
+						{name: 'angular', status: ''},
+						{name: 'jquery', status: ''},
+						{name: 'git', status: 'checked'},
+						{name: 'foundation', status: ''},
+						{name: 'bootstrap', status: 'checked'}
+					];
+				each checkbox in checkboxes
+					label.anketa__skill-label(for=checkbox.name)
+						input.checkbox(type="checkbox" id=checkbox.name)
+						span #{checkbox.name}
+		.anketa__js
+			.anketa__js-img
+				img.anketa__js-scale(src="images/skill.png" alt="skill")
+				.anketa__js-arrow-box
+					img.anketa__js-arrow(src="images/arrow.png" alt="arrow")
+			.anketa__js-info
+				h2
+					| Мой уровень владения
+					br
+					| Java Script
+				.anketa__js-counter

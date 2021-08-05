@@ -17,5 +17,3 @@ scrollToAnchor.init();
 
 // header.init();
 lazyLoading.init();
-
-
